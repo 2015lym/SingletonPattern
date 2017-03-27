@@ -10,22 +10,24 @@
 
 @implementation SingletonTest
 static SingletonTest *shared=nil;
-+(id)shareSingletonTest                  //单例模式核心代码
+
++ (id)shareSingletonTest                  //核心
 {
     static dispatch_once_t x;
     dispatch_once(&x, ^{
-        if (shared==nil) {
-        shared=[[super allocWithZone:NULL]init];    //实际开发中，不需要再写下面两个方法，说一声就行了
+        if (shared == nil) {
+        shared = [[super allocWithZone:NULL] init];    
         }
     });
     return shared;
 }
-+(id)allocWithZone:(struct _NSZone *)zone  //用来堵住alloc init的口
++ (id)allocWithZone:(struct _NSZone *)zone  
 {
     return [self shareSingletonTest];
 }
--(id)copyWithZone:(nullable NSZone *)zone  //用来堵住cpoy的口
+- (id)copyWithZone:(nullable NSZone *)zone  
 {
     return self;
 }
+
 @end
