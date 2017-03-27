@@ -10,14 +10,14 @@
 #import "SingletonTest.h"
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        SingletonTest *a=[SingletonTest shareSingletonTest];
-        SingletonTest *b=[SingletonTest shareSingletonTest];
-        SingletonTest *c=[[SingletonTest alloc]init];
-        SingletonTest *d=[c copy];
-        NSLog(@"%@",a);
-        NSLog(@"%@",b);
-        NSLog(@"%@",c);
-        NSLog(@"%@",d);    //结果会发现四个地址相同
+        SingletonTest *a = [SingletonTest shareSingletonTest];
+        SingletonTest *b = [SingletonTest shareSingletonTest];
+        SingletonTest *c = [[SingletonTest alloc] init];
+        SingletonTest *d = [c copy];
+        NSLog(@"%@", a);
+        NSLog(@"%@", b);
+        NSLog(@"%@", c);
+        NSLog(@"%@", d);    
     }
     return 0;
 }
